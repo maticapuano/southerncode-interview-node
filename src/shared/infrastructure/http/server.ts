@@ -1,6 +1,6 @@
 import { AppConfig } from "@/config/app";
 import { CoreModule } from "@/modules/core.module";
-import { Logger, VersioningType } from "@nestjs/common";
+import { Logger, ValidationPipe, VersioningType } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 
 const bootstrap = async (): Promise<void> => {
@@ -19,6 +19,8 @@ const bootstrap = async (): Promise<void> => {
   });
 
   app.enableShutdownHooks();
+
+  app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(AppConfig.PORT, () => {
     Logger.log(
