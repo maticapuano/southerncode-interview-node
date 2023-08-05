@@ -1,6 +1,7 @@
 import { TMDBConfig } from "@/config/tmdb";
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
+import { GetMovieByExternalIdUseCase } from "./application/get-movie.use-case";
 import { TMDBAdapter } from "./domain/adapters/tmdb.adapter";
 import { MovieRepository } from "./domain/repositories/movie.repository";
 import { TMDBAdapterIml } from "./infrastructure/adapters/tmdb/tmdb";
@@ -20,7 +21,8 @@ import { MovieRepositoryTypeorm } from "./infrastructure/persistence/typeorm/rep
         return new TMDBAdapterIml(TMDBConfig.apiKey, TMDBConfig.language);
       },
     },
+    GetMovieByExternalIdUseCase,
   ],
-  exports: [MovieRepository],
+  exports: [MovieRepository, GetMovieByExternalIdUseCase],
 })
 export class MoviesModule {}
