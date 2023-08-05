@@ -66,3 +66,23 @@ You can check the API documentation in the following URL:
 ```bash
 http://localhost:3000/docs
 ```
+
+## Migrations
+
+### Create a new migration
+
+If you want to create a new migration you can use the following command:
+
+```bash
+npm run migration:create --name=create-table-name
+```
+
+### Run migrations
+
+If you need to run the migrations manually you can use the following command:
+
+Note: The migrations are executed automatically when the application starts.
+
+```bash
+npm run migration:up
+```
