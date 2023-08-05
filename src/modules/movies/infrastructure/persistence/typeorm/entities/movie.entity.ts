@@ -1,5 +1,7 @@
 import { Movie } from "@/modules/movies/domain/contracts/movie";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Review } from "@/modules/reviews/domain/contracts/review";
+import { ReviewEntity } from "@/modules/reviews/infrastructure/persistence/typeorm/entities/review.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("movies")
 export class MovieEntity implements Movie {
@@ -20,4 +22,7 @@ export class MovieEntity implements Movie {
 
   @Column({ type: "text" })
   public overview: string;
+
+  @OneToMany(() => ReviewEntity, review => review.movie)
+  public reviews: Review[];
 }

@@ -19,6 +19,17 @@ export class MovieRepositoryTypeorm implements MovieRepository {
     });
   }
 
+  public async findByExternalIdWithReviews(
+    externalId: string,
+  ): Promise<Nullable<Movie>> {
+    return this.ormRepository.findOne({
+      where: {
+        externalId,
+      },
+      relations: ["reviews"],
+    });
+  }
+
   public async create(data: CreateMovie): Promise<Movie> {
     const movie = this.ormRepository.create(data);
 
