@@ -24,6 +24,9 @@ export class TMDBAdapterIml implements TMDBAdapter {
     try {
       const { data: movie } = await this.axiosInstance.get(`/movie/${id}`);
 
+      if (!movie) return null;
+      if (!movie.release_date.match(/\d{4}-\d{2}-\d{2}/)) return null;
+
       return {
         id: movie.id,
         title: movie.title,
