@@ -2,6 +2,7 @@ import { AppConfig } from "@/config/app";
 import { CoreModule } from "@/modules/core.module";
 import { Logger, ValidationPipe, VersioningType } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
+import { SwaggerBuilder } from "./utils/swagger-builder";
 
 const bootstrap = async (): Promise<void> => {
   const app = await NestFactory.create(CoreModule, {
@@ -22,9 +23,11 @@ const bootstrap = async (): Promise<void> => {
 
   app.useGlobalPipes(new ValidationPipe());
 
-  await app.listen(AppConfig.PORT, () => {
+  SwaggerBuilder.build(app);
+
+  await app.listen(AppConfig.port, () => {
     Logger.log(
-      `Server ready on: http://localhost:${AppConfig.PORT}`,
+      `Server ready on: http://localhost:${AppConfig.port}`,
       "Bootstrap",
     );
   });

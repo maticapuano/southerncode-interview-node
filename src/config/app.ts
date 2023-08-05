@@ -2,7 +2,7 @@ import { Environment } from "@/shared/domain/enums/environment";
 import env from "env-var";
 
 export class AppConfig {
-  public static get PORT(): number {
+  public static get port(): number {
     return env.get("PORT").default(3000).required().asPortNumber();
   }
 
