@@ -10,4 +10,4 @@ export type Movie = {
   reviews: Review[];
 };
 
-export type CreateMovie = Omit<Movie, "id">;
+export type CreateMovie = Omit<Movie, "id" | "reviews">;
