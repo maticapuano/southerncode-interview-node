@@ -4,7 +4,7 @@
 
 Welcome to the Movies API Challenge! This API allows users to submit reviews for movies using external API to get the movie information and store it in a local database.
 
-## Technologies related
+## Technologies Used in this Project
 
 - Node.js
 - Nest.js
@@ -12,6 +12,10 @@ Welcome to the Movies API Challenge! This API allows users to submit reviews for
 - Docker
 - Docker Compose
 - Swagger
+
+## Demo
+
+If you want to check the API in action you can use the following URL: [https://southerncode-interview-node.onrender.com/docs](https://southerncode-interview-node.onrender.com/docs)
 
 ## Prerequisites
 
