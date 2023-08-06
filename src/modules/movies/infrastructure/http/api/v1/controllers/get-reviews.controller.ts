@@ -11,7 +11,7 @@ import { ApiTags } from "@nestjs/swagger";
 export class GetReviewsController {
   public constructor(private useCase: GetMovieReviewsUseCase) {}
 
-  @Get("/movies/:movieId/reviews")
+  @Get("/:movieId/reviews")
   public async execute(@Param("movieId") moveId: string): Promise<Movie> {
     return this.useCase.execute(moveId);
   }
