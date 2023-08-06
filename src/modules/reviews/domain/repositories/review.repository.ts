@@ -8,4 +8,5 @@ export abstract class ReviewRepository {
     movieId: string,
     userName: string,
   ): Promise<boolean>;
+  public abstract existsUsername(userName: string): Promise<boolean>;
 }

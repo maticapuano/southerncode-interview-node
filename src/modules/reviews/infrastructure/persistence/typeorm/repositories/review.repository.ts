@@ -43,4 +43,14 @@ export class ReviewRepositoryTypeorm implements ReviewRepository {
 
     return !!review;
   }
+
+  public async existsUsername(userName: string): Promise<boolean> {
+    const review = await this.ormRepository.findOne({
+      where: {
+        userName,
+      },
+    });
+
+    return !!review;
+  }
 }
